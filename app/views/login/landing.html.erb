@@ -1,4 +1,5 @@
 <% javascript_include_tag '/assets/javascripts/ProcoreIframeHelpers.js' %>
+<% stylesheet_link_tag "/assets/stylesheets/login.css" %>
 <script>
   $(document).ready(function() {
 
@@ -37,11 +38,13 @@
 
 
 <div>
-  Welcome to the landing page<br />
-  <button class="core-button core-button--sm core-button--primary" id="submit1">
-    <div class="core-button__label">
-      Sign in with Procore
-    </div>
-  </button>
+  <div class ="core-card core-padding-sm" id="login-card">
+    <span class="core-lg-medium--primary">Welcome to the landing page</span><br />
+    <button class="core-button core-button--md core-button--primary" id="submit1">
+      <div class="core-button__label">
+        Sign in with Procore
+      </div>
+    </button>
+  </div>
 </div>
 
