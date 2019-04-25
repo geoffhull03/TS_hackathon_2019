@@ -1,5 +1,7 @@
 {
   "name": "TS_hackathon_2019",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@procore/core-css": "^7.2.5"
+  }
 }
