@@ -1,3 +1,16 @@
+<script type="text/javascript" src="/libraries/ProcoreIframeHelpers.js"></script>
+
+<script>
+
+  const context = procoreIframeHelpers.initialize();
+
+  // Call notifySuccess to close the login panel. An optional payload to be passed to your
+  // onSuccess handler can be included with the notifySuccess method...
+  context.authentication.notifySuccess({})
+
+</script>
+
 <div>
-  <%= link_to 'Sign In To Procore', ENV['OAUTH_URL'] + "/oauth/authorize?client_id=" + ENV['CLIENT_ID'] + "&response_type=code&redirect_uri=" + ENV['REDIRECT_URI'], :class => "button"%>
+  Welcome to the index page
 </div>
+

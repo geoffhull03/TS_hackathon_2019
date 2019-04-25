@@ -3,6 +3,18 @@ require 'rest-client'
 
 class LoginController < ApplicationController
 
+  def index
+  end
+
+  def landing
+  end
+
+  def procore
+    url = "https://sandbox.procore.com/oauth/authorize?response_type=#{code}&client_id=#{ENV["CLIENT_ID"]}&redirect_uri=#{ENV["REDIRECT_URI"]}"
+
+    redirect_to url
+  end
+
   def callback
     @authorization_code = params["code"]
 
