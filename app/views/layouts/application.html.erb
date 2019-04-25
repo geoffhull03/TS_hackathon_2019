@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TSHackathon2019</title>
+    <title>External Data Viewer</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,7 +9,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+    <body>
+      <div class="container">
+          <ul class="nav nav-tabs">
+            <li><%= link_to "Sign In", login_index_path %></li>
+          </ul>
+    </body>
+      <%= yield %>
 </html>
