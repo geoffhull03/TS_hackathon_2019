@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  get 'login/index'
+	root 'login#index'
 
-  get 'login/callback'
-
-  root 'login#index'
-  
+  get '/callback', to: 'login#callback'
+  get '/landing', to: 'login#landing'
+  get '/procore', to: 'login#procore'
 end
