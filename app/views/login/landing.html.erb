@@ -1,0 +1,43 @@
+<% javascript_include_tag '/assets/javascripts/ProcoreIframeHelpers.js' %>
+<script>
+  $(document).ready(function() {
+
+      const context = procoreIframeHelpers.initialize();
+
+      $('#submit1').on('click', function() {
+
+          context.authentication.authenticate({
+
+          // Set this to a URL on your domain that will start the authentication process.
+          // This URL points to a route that calls the /oauth/authorize endpoint with client_id, response_type, and redirect_uri query parameters...
+          // https://login.procore.com/oauth/authorize?client_id=<ClientID>&response_type=<ResponseType>&redirect_uri=<RedirectID>
+          url: "/procore",
+
+          // Send the end user to the /main route of your iframe app if authentication is successful. This can be any route you choose.
+          // You can optionally include a payload as a function parameter (i.e., function(payload))
+          onSuccess: function() {
+            window.location = "/"
+          },
+
+          // Error handling function that runs if authentication fails. Here we are just logging the error
+          // to the console, but you will want to display an error to the user. This
+          // function can be triggered by you, or will be triggered automatically if the
+          // user closes the authenication window.
+          onFailure: function(error) {
+            console.log(error);
+          }
+
+        });
+
+      });
+
+  });
+
+</script>
+
+
+<div>
+  Welcome to the landing page<br />
+  <input id="submit1" type="button" value = "Sign in with Procore" />
+</div>
+

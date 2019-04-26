@@ -2,6 +2,7 @@
   "name": "TS_hackathon_2019",
   "private": true,
   "dependencies": {
-    "@procore/core-css": "^7.2.5"
+    "@procore/core-css": "^7.2.5",
+    "jquery": "^3.4.0"
   }
 }
