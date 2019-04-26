@@ -2,6 +2,10 @@
   <div class="core-l-list-page__body__content">
     <div class="core-padding-lg" style={{ background: '#f5f5f5', flex: 1 }}>
       <div class="core-card core-card--level-30">
+        <%= form_tag(work_order_contracts_path, method: "get") do %>
+          Search for Origin ID <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag 'Submit', name: nil %>
+        <% end %>
         <div class="core-table">
           <table class="core-table__table sortable">
             <thead class="core-table__head">
