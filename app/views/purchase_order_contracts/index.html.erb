@@ -1,4 +1,8 @@
-<html>
+<%= form_tag(purchase_order_contracts_path, method: "get") do %>
+  Search for Origin ID <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag 'Submit', name: nil %>
+<% end %>
+
   <table>
     <tr>
       <th> Contract Name</th>
@@ -18,4 +22,3 @@
     <% end %>
 
   </table>
-</html>
