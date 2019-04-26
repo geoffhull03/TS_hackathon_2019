@@ -4,7 +4,12 @@ class PurchaseOrderContractsController < ApplicationController
     session[:procoreProjectId] = '8673'
     session[:procoreCompanyId] = '13958'
 
-    list_poc= RestClient.get(ENV['BASE_URL'] + '/vapid/purchase_order_contracts?project_id=' + session[:procoreProjectId],
+    if params[:search]
+      query = "&filters[origin_id]=" + "#{params[:search]}"
+    else query = ""
+    end
+    puts
+    list_poc= RestClient.get(ENV['BASE_URL'] + '/vapid/purchase_order_contracts?project_id=' + session[:procoreProjectId] + query,
     {"Authorization" => "Bearer #{session[:oauth_response]['access_token']}",
     "Procore-Company-ID" => session[:procoreCompanyId]})
 
