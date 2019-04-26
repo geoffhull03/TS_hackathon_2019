@@ -2,15 +2,16 @@ class PurchaseOrderContractsController < ApplicationController
 	before_action :logged_in
 
   def index
-  	# Unless loops to prevent debug code from triggering in prod
-  	unless session[:procoreProjectId]
-    	session[:procoreProjectId] = '8673'
-    end
-    unless session[:procoreCompanyId]
-    	session[:procoreCompanyId] = '13958'
+    session[:procoreProjectId] ||= '8673'
+    session[:procoreCompanyId] ||= '13958'
+
+    if params[:search]
+      query = "&filters[origin_id]=#{params[:search]}"
+    else 
+      query = ""
     end
 
-    list_poc= RestClient.get(ENV['BASE_URL'] + '/vapid/purchase_order_contracts?project_id=' + session[:procoreProjectId],
+    list_poc= RestClient.get("#{ENV['BASE_URL']}/vapid/purchase_order_contracts?project_id=#{session[:procoreProjectId]}#{query}",
     {"Authorization" => "Bearer #{session[:oauth_response]['access_token']}",
     "Procore-Company-ID" => session[:procoreCompanyId]})
 

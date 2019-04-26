@@ -1,23 +1,26 @@
 <%= view_object(:nav_header, active: :poc ).html %>
 
-<html>
-  <table>
-    <tr>
-      <th> Contract Name</th>
-      <th> Contract Number</th>
-      <th> Origin ID </th>
-      <th> Origin Data </th>
-      <th> Origin Code </th>
-    </tr>
-    <tr>
-      <% @purchase_order_contracts.each do |contract| %>
-      <td><%=contract['title'] %></td>
-      <td><%=contract['number'] %> </td>
-      <td><%=contract['origin_id'] %> </td>
-      <td><%=contract['origin_data'] %> </td>
-      <td><%= contract['origin_code']%> </td>
-    </tr>
-    <% end %>
+<%= form_tag(purchase_order_contracts_path, method: "get") do %>
+  Search for Origin ID <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag 'Submit', name: nil %>
+<% end %>
 
-  </table>
-</html>
+<table>
+  <tr>
+    <th> Contract Name</th>
+    <th> Contract Number</th>
+    <th> Origin ID </th>
+    <th> Origin Data </th>
+    <th> Origin Code </th>
+  </tr>
+  <tr>
+    <% @purchase_order_contracts.each do |contract| %>
+    <td><%=contract['title'] %></td>
+    <td><%=contract['number'] %> </td>
+    <td><%=contract['origin_id'] %> </td>
+    <td><%=contract['origin_data'] %> </td>
+    <td><%= contract['origin_code']%> </td>
+  </tr>
+  <% end %>
+
+</table>
