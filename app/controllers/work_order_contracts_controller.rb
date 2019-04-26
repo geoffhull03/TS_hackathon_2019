@@ -1,11 +1,12 @@
 class WorkOrderContractsController < ApplicationController
+	before_action :logged_in
 
   def index
     session[:procoreProjectId] ||= '8673'
     session[:procoreCompanyId] ||= '13958'
 
       if params[:search]
-        query = "&filters[origin_id]=" + "#{params[:search]}"
+        query = "&filters[origin_id]=#{params[:search]}"
       else 
       	query = ""
       end
