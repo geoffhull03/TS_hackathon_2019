@@ -1,4 +1,5 @@
 <% javascript_include_tag '/assets/javascripts/ProcoreIframeHelpers.js' %>
+<% stylesheet_link_tag "/assets/stylesheets/login.css" %>
 <script>
   $(document).ready(function() {
 
@@ -37,6 +38,13 @@
 
 
 <div>
-  Welcome to the landing page<br />
-  <input id="submit1" type="button" value = "Sign in with Procore" />
+  <div class ="core-card core-padding-sm" id="login-card">
+    <span class="core-lg-medium--primary">Welcome to the Origin Data Viewer!</span>
+    <p class="core-md-regular--primary">To use this app, click the button below and log in with your Procore credentials. On the following page, click 'Allow' to allow the app to use your credentials to make requests for the data you have access to.</p><br />
+    <button class="core-button core-button--lg core-button--primary core-button--block" id="submit1">
+      <div class="core-button__label">
+        Sign in to Procore
+      </div>
+    </button>
+  </div>
 </div>
