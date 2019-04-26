@@ -1,4 +1,5 @@
 class WorkOrderContractsController < ApplicationController
+	before_action :logged_in
 
   def index
     session[:procoreProjectId] = '8673'

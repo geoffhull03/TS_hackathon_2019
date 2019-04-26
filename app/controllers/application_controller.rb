@@ -7,4 +7,11 @@ class ApplicationController < ActionController::Base
   OAUTH_URL = ENV['OAUTH_URL']
   BASE_URL = ENV['BASE_URL']
 
+  private
+  def logged_in
+  	unless session[:oauth_response]
+  		redirect_to "/landing", notice: "No token!"
+  	end
+  end
+
 end
