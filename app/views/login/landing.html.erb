@@ -36,6 +36,16 @@
 
 </script>
 
+<% if flash[:notice] %>
+  <div class="core-banner core-banner--error">
+    <span aria-hidden="true" class="core-banner__icon core-icon--md ci ci-error-o"></span>
+    <div class="core-banner__content">
+      <div class="core-banner__title">Error</div>
+      <p class="core-banner__body">Please sign in with Procore.</p>
+    </div>
+    <button class="core-banner__dismiss core-icon--md ci ci-x"></button>
+  </div>
+<% end %>
 
 <div>
   <div class ="core-card core-padding-sm" id="login-card">
