@@ -1,11 +1,27 @@
+<div class="core-l-tool-header">
+  <a>
+    <span class="core-l-tool-header__icon">
+      <%= link_to root_path do %>
+      <i class="ci ci-cog"></i>
+      <% end %>
+    </span>
+  </a>
+  <h1 class="core-l-tool-header__title">
+    Work Order Contracts
+  </h1>
+</div>
 <div class="core-l-list-page__body">
   <div class="core-l-list-page__body__content">
     <div class="core-padding-lg" style={{ background: '#f5f5f5', flex: 1 }}>
       <div class="core-card core-card--level-30">
-        <%= form_tag(work_order_contracts_path, method: "get") do %>
-          Search for Origin ID <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag 'Submit', name: nil %>
-        <% end %>
+        <div className="core-icon-layout core-icon-layout--count-2">
+          <%= form_tag(work_order_contracts_path, method: "get") do %>
+            <%= text_field_tag :search, params[:search], class: "core-input", placeholder: "Search for Origin ID" %>
+            <div className="core-margin-r-xs core-margin-l-xs">
+              <%= submit_tag 'Submit', class: "core-button core-button--md core-button--primary" %>
+            </div>
+          <% end %>
+        </div>
         <div class="core-table">
           <table class="core-table__table sortable">
             <thead class="core-table__head">
