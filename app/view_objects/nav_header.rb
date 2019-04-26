@@ -1,4 +1,5 @@
 class NavHeader
+	include Rails.application.routes.url_helpers
 	include ActionView::Helpers
 
 	def initialize(options = {})
@@ -7,13 +8,18 @@ class NavHeader
 
 	def html
 		content = [
-			"<div class=\"core-l-tool-header\">
-  			<h1 class=\"core-l-tool-header__title\">
+			"<div class=\"core-l-tool-header\">"
+		]
+
+		content << link_to("<span class=\"core-l-tool-header__icon\">
+			      <i class=\"ci ci-arrow-left\"></i>
+			    </span>".html_safe, root_path)
+
+  	content << "<h1 class=\"core-l-tool-header__title\">
     			Origin Data Viewer
   			</h1>
   			<div class=\"core-l-tool-header__tabs\">
     			<nav class=\"core-tabs\">"
-		]
 		if @active_tool == :woc
 			content << [
 				"<li class=\"core-tabs__tab core-tabs__tab--active\">
