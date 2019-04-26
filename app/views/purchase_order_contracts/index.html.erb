@@ -1,26 +1,98 @@
 <%= view_object(:nav_header, active: :poc ).html %>
+<div class="core-l-tool-header">
+  <a>
+    <span class="core-l-tool-header__icon">
+      <%= link_to root_path do %>
+        <i class="ci ci-arrow-left"></i>
+      <% end %>
+    </span>
+  </a>
+  <h1 class="core-l-tool-header__title">
+    Purchase Order Contracts
+  </h1>
+</div>
+<div class="core-l-list-page__body">
+  <div class="core-l-list-page__body__content">
+    <div class="core-padding-lg" style={{ background: '#f5f5f5', flex: 1 }}>
+      <div class="core-card core-card--level-30">
+        <div className="core-icon-layout core-icon-layout--count-2">
+          <%= form_tag(purchase_order_contracts_path, method: "get") do %>
+            <%= text_field_tag :search, params[:search], class: "core-input", placeholder: "Search for Origin ID" %>
+            <div className="core-margin-r-xs core-margin-l-xs">
+              <%= submit_tag 'Submit', class: "core-button core-button--md core-button--primary" %>
+            </div>
+          <% end %>
+        </div>
+        <div class="core-table">
+          <table class="core-table__table sortable">
+            <thead class="core-table__head">
+              <tr class="core-table__head-row">
+                <th class="core-table__th">
+                  <div class="core-table__th__label">
+                    Title
+                  </div>
+                </th>
+                <th class="core-table__th core-table__th--sortable core-table__th--sortable-asc">
+                  <div class="core-table__th__label">
+                    Number
+                  </div>
+                </th>
+                <th class="core-table__th core-table__th--sortable">
+                  <div class="core-table__th__label">
+                    Origin ID
+                  </div>
+                </th>
+                <th class="core-table__th core-table__th--sortable">
+                  <div class="core-table__th__label">
+                    Origin Data
+                  </div>
+                </th>
+                <th class="core-table__th core-table__th--sortable">
+                  <div class="core-table__th__label">
+                    Origin Code
+                  </div>
+                </th>
+              </tr>
+            </thead>
 
-<%= form_tag(purchase_order_contracts_path, method: "get") do %>
-  Search for Origin ID <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag 'Submit', name: nil %>
-<% end %>
+            <tbody class="core-table__body">
+              <% @purchase_order_contracts.each do |contract| %>
+              <tr class="core-table__body-row">
+                <td class="core-table__td">
+                  <label class="core-table__text-cell">
+                    <%= contract['title'] %>
+                  </label>
+                </td>
+                <td class="core-table__td">
+                  <label class="core-table__text-cell">
+                    <%= contract['number'] %>
+                  </label>
+                </td>
+                <td class="core-table__td">
+                  <label class="core-table__text-cell">
+                    <%= contract['origin_id'] %>
+                  </label>
+                </td>
+                <td class="core-table__td">
+                  <label class="core-table__text-cell">
+                    <%= contract['origin_data'] %>
+                  </label>
+                </td>
+                <td class="core-table__td">
+                  <label class="core-table__text-cell">
+                    <%= contract['origin_code'] %>
+                  </label>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
 
-<table>
-  <tr>
-    <th> Contract Name</th>
-    <th> Contract Number</th>
-    <th> Origin ID </th>
-    <th> Origin Data </th>
-    <th> Origin Code </th>
-  </tr>
-  <tr>
-    <% @purchase_order_contracts.each do |contract| %>
-    <td><%=contract['title'] %></td>
-    <td><%=contract['number'] %> </td>
-    <td><%=contract['origin_id'] %> </td>
-    <td><%=contract['origin_data'] %> </td>
-    <td><%= contract['origin_code']%> </td>
-  </tr>
-  <% end %>
+            <tfoot>
 
-</table>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
