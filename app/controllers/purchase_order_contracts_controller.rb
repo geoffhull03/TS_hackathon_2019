@@ -6,7 +6,8 @@ class PurchaseOrderContractsController < ApplicationController
 
     if params[:search]
       query = "&filters[origin_id]=" + "#{params[:search]}"
-    else query = ""
+    else 
+      query = ""
     end
 
     list_poc= RestClient.get("#{ENV['BASE_URL']}/vapid/purchase_order_contracts?project_id=#{session[:procoreProjectId]}#{query}",
