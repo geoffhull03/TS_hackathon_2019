@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <th>Contract Name</th>
+    <th>Contract Number</th>
+    <th>Origin ID</th>
+    <th>Origin Data</th>
+    <th>Origin Code</th>
+  </tr>
+  <% @work_order_contracts.each do |contract| %>
+  <tr>
+    <td><%= contract['title'] %></td>
+    <td><%= contract['number'] %></td>
+    <td><%= contract['origin_id'] %></td>
+    <td><%= contract['origin_data'] %></td>
+    <td><%= contract['origin_code'] %></td>
+  </tr>
+  <% end %>
+
+</table>
